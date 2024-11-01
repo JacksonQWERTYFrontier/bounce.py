@@ -1,28 +1,39 @@
 import board
 import time
 from neopixel import NeoPixel
-import random
 
-np = NeoPixel(board.D2, 31, auto_write=False, brightness = 0.2)
+np = NeoPixel(board.D2, 30, auto_write=False, brightness=1)
 
-magenta = (255,0,255)
+red = (255,00,0)
+green = (0,255,0)
+blue = (0,0,255)
+magenta = (106, 49, 81)
+orange = (255, 60, 0)
+purple = (128, 0, 128)
 white = (255,255,255)
-orange = (255, 135, 30)
-lightorange = (200, 34, 0)
-palet_list = [orange, magenta, white, lightorange]
-anything = random.choice(palet_list)
 
-sparkleween = 5
+palete_list = [red, yellow, green, cyan, blue, purple]
 
-def larson(bground, movinglight, num, speed):
-    pixel = 0
-    direction = 1
-    count 0
-    while count < num:
-        np.fill(bground)
+def bouncey(fg, bg, bounces = 10):
+    g = 0
+    b = 1
+    bc = 0
+    while bc < bounces:
+        np.fill(fg)
+        np[g+0] = bg
+        np[g-1] = bg
+        np[g-2] = bg
         np.show()
-        np[pixel
-        
+        g += b
+        if g >= (np.n-1) or g <=0:
+            b *= -1
+            bc += 1
+        time.sleep(0.03)
+        if g >= (np.n+1) or g == 0:
+            b *= 1
+            bc += 1
+        time.sleep(0.03)
 
+           
 while True:
-    larson(orange)
+    bouncey(magenta, orange)
